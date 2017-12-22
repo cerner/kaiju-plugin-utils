@@ -49,17 +49,38 @@ describe('PluginUtils', () => {
   });
 
   describe('runCompiler', () => {
+    it('runs the compiler', (done) => {
+      const config = PluginUtils.defaultWebpackConfig('derp');
+      const memFS = new MemoryFS();
+      const testFs = PluginUtils.webpackFs(memFS);
+      config.entry.preview = '/tests/jest/examples/derp.js';
 
+      PluginUtils.runCompiler(testFs, config).then((outputFs) => {
+        expect(outputFs.existsSync('/build/preview.js')).toBe(true);
+        done();
+      });
+    });
+
+    it('fails running the compiler', (done) => {
+      const config = PluginUtils.defaultWebpackConfig('derp');
+      const memFS = new MemoryFS();
+      const testFs = PluginUtils.webpackFs(memFS);
+      config.entry.preview = '/tests/jest/examples/herp.js';
+
+      PluginUtils.runCompiler(testFs, config).catch((error) => {
+        expect(error).toBe('Preview failed to compile');
+        done();
+      });
+    });
   });
 
   describe('webpackCompiler', () => {
     it('returns a new webpack compiler', () => {
       const config = PluginUtils.defaultWebpackConfig('derp');
       const memFS = new MemoryFS();
-      config.entry.preview = '/tests/jest/data/derp.js';
-      const compiler = PluginUtils.webpackCompiler(config, memFS);
+      config.entry.preview = '/tests/jest/examples/derp.js';
+      const compiler = PluginUtils.webpackCompiler(memFS, config);
 
-      // expect(compiler).toEqual({});
       expect(compiler.options.entry.preview).toEqual(config.entry.preview);
       expect(compiler.inputFileSystem).toBe(memFS);
       expect(compiler.resolvers.normal.fileSystem).toBe(memFS);

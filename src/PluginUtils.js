@@ -41,7 +41,7 @@ class PluginUtils {
   static runCompiler(memoryFs, config) {
     // create webpack compiler
     // setup compiler filesystem with memory fs
-    const compiler = PluginUtils.webpackCompiler(config, memoryFs);
+    const compiler = PluginUtils.webpackCompiler(memoryFs, config);
     // run compiler
     return new Promise((resolve, reject) => {
       compiler.run((err, stats) => {
@@ -55,7 +55,7 @@ class PluginUtils {
     });
   }
 
-  static webpackCompiler(config, compilerFs) {
+  static webpackCompiler(compilerFs, config) {
     const compiler = webpack(config);
     // hydrate new fs with data
     compiler.inputFileSystem = compilerFs;
