@@ -7,7 +7,11 @@
     "clean": "rm -rf ./node_modules",
     "lint": "npm run lint-js",
     "lint-js": "eslint --ext .js,.jsx .",
+    "prepublishOnly": "npm test",
     "pretest": "npm run lint",
+    "release:major": "node scripts/release/release.js major",
+    "release:minor": "node scripts/release/release.js minor",
+    "release:patch": "node scripts/release/release.js patch",
     "test": "jest"
   },
   "repository": {
@@ -26,6 +30,8 @@
   "dependencies": {
     "app-root-path": "^2.0.1",
     "memory-fs": "^0.4.1",
+  },
+  "peerDependencies": {
     "webpack": "^3.10.0"
   },
   "devDependencies": {
@@ -34,6 +40,7 @@
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.4.0",
-    "jest": "^22.0.3"
+    "jest": "^22.0.3",
+    "webpack": "^3.10.0"
   }
 }
