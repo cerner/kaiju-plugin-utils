@@ -29,7 +29,7 @@
   "homepage": "https://github.com/cerner/kaiju-plugin-utils#readme",
   "dependencies": {
     "app-root-path": "^2.0.1",
-    "memory-fs": "^0.4.1",
+    "memory-fs": "^0.4.1"
   },
   "peerDependencies": {
     "webpack": "^3.10.0"
