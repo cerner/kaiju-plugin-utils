@@ -1,6 +1,7 @@
-node_modules
-tests
-scripts
-.travis.yml
-.nvmrc
 .eslintrc
+.github
+.nvmrc
+.travis.yml
+node_modules
+scripts
+tests
