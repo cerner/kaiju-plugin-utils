@@ -13,7 +13,7 @@ class PluginUtils {
     return fallbackFS(fs.data, fileSystem);
   }
 
-  static defaultWebpackConfig(publicPath) {
+  static defaultWebpackConfig(publicPath, outputPath) {
     return {
       entry: {
       },
@@ -24,7 +24,7 @@ class PluginUtils {
       },
 
       output: {
-        path: '/build/',
+        path: outputPath,
         publicPath,
       },
 
