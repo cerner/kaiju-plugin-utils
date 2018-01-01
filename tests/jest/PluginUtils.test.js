@@ -27,13 +27,14 @@ describe('PluginUtils', () => {
   describe('defaultWebpackConfig', () => {
     it('returns a base webpack config', () => {
       const publicPath = 'publicPath';
-      const config = PluginUtils.defaultWebpackConfig(publicPath);
+      const outputPath = '/build/';
+      const config = PluginUtils.defaultWebpackConfig(publicPath, outputPath);
       expect(config.resolve).toEqual({
         extensions: ['.js'],
         modules: [path.join(__dirname, '../..', 'node_modules')],
       });
       expect(config.output).toEqual({
-        path: '/build/',
+        path: outputPath,
         publicPath,
       });
       expect(config.plugins).toEqual([
@@ -50,13 +51,13 @@ describe('PluginUtils', () => {
 
   describe('runCompiler', () => {
     it('runs the compiler', (done) => {
-      const config = PluginUtils.defaultWebpackConfig('derp');
+      const config = PluginUtils.defaultWebpackConfig('derp', '/herp/');
       const memFS = new MemoryFS();
       const testFs = PluginUtils.webpackFs(memFS);
       config.entry.preview = '/tests/jest/examples/derp.js';
 
       PluginUtils.runCompiler(testFs, config).then((outputFs) => {
-        expect(outputFs.existsSync('/build/preview.js')).toBe(true);
+        expect(outputFs.existsSync('/herp/preview.js')).toBe(true);
         done();
       });
     });
