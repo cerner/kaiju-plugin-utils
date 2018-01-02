@@ -32,5 +32,4 @@ function fallbackFS(data, fs) {
   return new Proxy(new MemoryFS(data), handler);
 }
 
-// export default fallbackFS;
 module.exports = fallbackFS;

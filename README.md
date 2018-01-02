@@ -23,7 +23,7 @@ Memory File System - A memory file system containing the files to be webpacked.
 
 Config - The webpack config to be used by the compiler.
 
-**Return values:** Compiler file system - A promise for a memory file system contained the output from the webpack compiler.
+**Return values:** Compiler file system - A promise for a memory file system containing the output from the webpack compiler.
 
 ### webpackCompiler
 Creates a webpack compiler setup with the config and memory file system passed in and a new memory file system instance for the output.
@@ -65,12 +65,12 @@ The fallback file system is a very specific proxy setup on top of a memory file 
 
 ### Usage
 ```js
-const {, fallbackFs} = require('kaiju-plugin-utils');
+const { FallbackFileSystem } = require('kaiju-plugin-utils');
 const fileSystem = require('fs');
 const MemoryFS = require('memory-fs');
 
 const memFs = new MemoryFS();
-const fallbackFs = fallbackFS(memFs.data, fileSystem);
+const fallbackFs = FallbackFileSystem(memFs.data, fileSystem);
 ```
 
 ## History
