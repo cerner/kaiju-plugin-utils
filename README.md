@@ -1,5 +1,8 @@
 # kaiju-plugin-utils
 
+[![Cerner OSS](https://img.shields.io/badge/Cerner-OSS-blue.svg?style=flat)](http://engineering.cerner.com/2014/01/cerner-and-open-source/)
+[![Build Status](https://travis-ci.org/cerner/kaiju-plugin-utils.svg?branch=master)](https://travis-ci.org/cerner/kaiju-plugin-utils)
+
 Kaiju plugin utils is a helpful library of common optional utilities used when creating plugins for Kaiju.
 
 ## Development notes
