@@ -37,7 +37,7 @@ Config - The webpack config to be used by the compiler.
 **Return values:** A webpack compiler setup with a memory file system.
 
 ### defaultWebpackConfig
-A basic optional webpack config. Importantly it setups the resolve to point to the root app's node modules, output based on arguments and the output and it sets the environment to production.
+A basic optional webpack config. Importantly it sets up resolve to point to the root app's node modules, output based on arguments and the output and it sets the environment to production.
 
 **Arguments:**
 public path - the path the the preview's assets, this will be supplied by the kaiju server.
