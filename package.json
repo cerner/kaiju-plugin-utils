@@ -1,6 +1,6 @@
 {
   "name": "kaiju-plugin-utils",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Common utils for kaiju plugins",
   "main": "index.js",
   "scripts": {
